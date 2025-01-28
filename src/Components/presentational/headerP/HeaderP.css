@@ -1,0 +1,63 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #06c;
+  padding: 10px 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 80px;
+  z-index: 100; /* Ensure header stays on top */
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Add space between logo and delivery options */
+  
+}
+
+
+
+.delivery-options {
+  display: flex;
+  gap: 10px;
+  white-space: nowrap; /* Prevent delivery options from wrapping */
+  color: chartreuse;
+}
+
+
+.location {
+  flex-grow: 1;
+  text-align: center;
+  right:50px ;
+}
+
+.account {
+  display: flex;
+  right:50px ;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add space between links */
+  position: relative;
+  right:50px;
+}
+
+.account a {
+  color: white;
+  text-decoration: none;
+}
+
+.account a:hover{
+  color: chartreuse;
+}

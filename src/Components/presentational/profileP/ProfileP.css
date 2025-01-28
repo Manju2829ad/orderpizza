@@ -1,0 +1,94 @@
+
+.name-disabled{
+
+
+  min-width: 10px;
+
+  height: 30px;
+}
+  
+  /* Styling for user details section */
+  .userdetails {
+    width: 70vw;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    left: 300px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+  }
+  
+  /* Name section */
+  .name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .acc-name span,
+  .email span,
+  #mobile {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Editable input fields */
+  input.firstname,
+  input.lastname,
+  input.email {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  /* Add styling for edit mode */
+  .acc-edit input {
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for buttons */
+  button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button#editname {
+    margin-left: 20px;
+  }
+  
+  button#editemail {
+    margin-left: 10px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Other details section */
+  .otherdetails {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .update-button {
+
+     position: relative;
+     bottom: 100px;
+     left: 450px;
+  }

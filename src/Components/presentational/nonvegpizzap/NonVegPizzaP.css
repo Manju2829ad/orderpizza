@@ -1,0 +1,128 @@
+.non-veg-pizza-products {
+  position: absolute;
+  top: 300px;
+  left: 0;
+  width: 70vw;
+  height: auto;
+  background-color: rgb(192 252 136);
+  display: flex;  /* Added to align cards */
+ flex-wrap: wrap;   /* To allow cards to wrap to next line */
+
+       /* gap: 20px; */
+
+         /*  Adds space between the cards */
+justify-content: space-around;
+}
+
+.nonvegcard {
+  background-color: hsl(50deg 100% 56%);
+  width: 350px;
+  height: 350px;
+   display: flex;/* Ensures content inside is laid out properly */
+  flex-direction: column; /* Content inside will stack vertically */
+ align-items: center;   /* Centers the content horizontally */
+ justify-content: center;  /*  Centers the content vertically */
+ border-radius: 10px;
+ margin-bottom: 20px;
+}
+
+
+
+
+
+
+.nonvegtitle{
+  font-size: 1em;
+  font-family: inherit;
+}
+
+
+/*
+Limits the maximum width and height of an image, preventing it
+ from exceeding certain dimensions.
+
+Often used with responsive designs to avoid oversized images.
+
+object-fit:
+
+
+Specifies how the image should be resized to fit its container. 
+Common values include fill, contain, cover, none, and scale-down.
+
+object-position:
+
+Adjusts the position of an image within its container when object-fit is applied.
+
+box-shadow:
+
+Adds a shadow around the image to create a sense of depth.
+
+filter:
+
+Applies visual effects such as grayscale, blur, brightness, etc.
+
+opacity:
+
+Controls the transparency of an image.
+ The value ranges from 0 (fully transparent) to 1 (fully opaque).
+
+ background-image:
+
+Sets an image as the background of an element. Common for decorative images.
+background-size
+
+Controls how a background image is sized within an element. 
+Common values are cover, contain, and specific dimensions.
+
+aspect-ratio:
+Ensures the image maintains a certain width-to-height ratio, 
+which is useful for responsive images.
+*/
+
+
+.nonvegdescp{
+  font-size: 1*em;
+position: relative;
+color:  hsl(240deg 70% 50%);
+}
+
+/*
+Hue: Specifies the type of color on the 360-degree color
+ wheel (0 = red, 120 = green, 240 = blue, etc.).
+
+Saturation: Defines the intensity of the color. 100% is full saturation,
+ and 0% is grayscale.
+
+Lightness: Determines how light or dark the color is. 0% is black,
+ 100% is white, and 50% is the true color.
+
+
+
+*/
+
+
+
+.nonvegprices{
+  font-size: 1em;
+color: hsl(246deg 98% 21%); /* Bright yellow heading */
+font-weight: 700;
+}
+
+
+.nonvegimage{
+border: 1px solid black;
+width: 70vw;
+max-width: 200px;
+max-height: 200px;
+}
+
+
+
+.nonvegtext
+
+{
+  display: inline-block;
+  padding: 10px 20px;
+
+
+}

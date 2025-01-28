@@ -1,0 +1,85 @@
+/* SignUp.css */
+
+/* body {
+  font-family: Roboto, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+} */
+
+.signup-container {
+   position: relative;
+   left:500px;
+  background-color: #530fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+  max-width: 500px;
+  width: 100vw;
+  position: relative;
+  top: 200px;
+  left: 500px;
+  height: auto;
+}
+
+h2 {
+  text-align: center;
+  color: hsl(0, 100%, 99%);
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+form div {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: hsl(0, 100%, 100%);
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+p {
+  text-align: center;
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgb(0 123 255 / 50%);
+}
