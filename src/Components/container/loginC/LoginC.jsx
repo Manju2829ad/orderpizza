@@ -44,6 +44,7 @@ console.log(isLoggedIn,":isLoggedIn")
     try {
       const response = await axios.post('http://localhost:8080/api/user/login', {
         user,
+    
       });
 
       console.log(response)
