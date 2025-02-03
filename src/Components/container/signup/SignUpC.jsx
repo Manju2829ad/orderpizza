@@ -34,7 +34,7 @@ function SignupContainer() {
 
     try {
         // Send a request to your backend API without the token
-        await axios.post('http://localhost:8080/api/users/create', {
+        await axios.post('https://springpizzaapp.onrender.com/api/users/create', {
             password,
             firstName,
             lastName,

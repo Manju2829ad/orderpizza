@@ -9,7 +9,7 @@ function ProfileC() {
     console.log("inside the fetchProfileDetails");
     try {    
       const token = localStorage.getItem('jwtToken');
-      const response = await fetch(`http://localhost:8080/api/users/getuser/${id}`, {
+      const response = await fetch(`https://springpizzaapp.onrender.com/api/users/getuser/${id}`, {
         method: 'GET',
         headers: {
           'Content-type': 'application/json',
@@ -52,7 +52,7 @@ function ProfileC() {
   
     try {
       const token = localStorage.getItem('jwtToken');
-      const response = await fetch("http://localhost:8080/api/users/update", {
+      const response = await fetch("https://springpizzaapp.onrender.com/api/users/update", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

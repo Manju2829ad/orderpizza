@@ -6,7 +6,7 @@ function NewLaunchContext({ children }) {
   // Fetch Pizza data by category
   const fetchNewLaunch = async (category) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/pizza/get/${category}`, {
+      const response = await fetch(`https://springpizzaapp.onrender.com/api/pizza/get/${category}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

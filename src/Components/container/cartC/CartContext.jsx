@@ -205,7 +205,7 @@ const removeItem = (id) => {
   // Handle user login
   const handleLogin = async (username, password) => {
     try {
-      const response = await fetch('http://localhost:8080/login', {
+      const response = await fetch('https://springpizzaapp.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -230,7 +230,7 @@ const removeItem = (id) => {
   // Fetch pizza data based on category
   const fetchPizza = async (category) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/pizza/get/${category}`, {
+      const response = await fetch(`https://springpizzaapp.onrender.com/api/pizza/get/${category}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -251,7 +251,7 @@ const removeItem = (id) => {
   // Fetch price by pizza ID
   const fetchPriceByPizzaId = async (pizzaId) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/price/get/${pizzaId}`, {
+      const response = await fetch(`https://springpizzaapp.onrender.com/api/price/get/${pizzaId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
