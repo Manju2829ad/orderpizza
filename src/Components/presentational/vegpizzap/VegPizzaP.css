@@ -15,7 +15,7 @@ justify-content: space-around;
 }
 
 .veg-pizza-card {
-  background-color: hwb(165 28% 7%);
+  background-color: rgb(226, 234, 232);
   width: 350px;
   height: 350px;
    display: flex;/* Ensures content inside is laid out properly */

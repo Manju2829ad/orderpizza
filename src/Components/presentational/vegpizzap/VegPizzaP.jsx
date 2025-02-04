@@ -37,17 +37,18 @@ const PizzaCardSkeleton = React.memo(({ pizzaData, onAddToCart }) => {
       </div>
 
       <div className="pizza-controls">
-        <select className="size-select" defaultValue={pizzaData?.sizes?.[0]}>
-          {pizzaData?.sizes?.map(size => (
-            <option key={size} value={size}>{size}</option>
-          ))}
-        </select>
+      <select className="size-select" defaultValue={pizzaData?.sizes?.[0]}>
+  {Array.isArray(pizzaData?.sizes) && pizzaData.sizes.map(size => (
+    <option key={size} value={size}>{size}</option>
+  ))}
+</select>
 
-        <select className="crust-select" defaultValue={pizzaData?.crusts?.[0]}>
-          {pizzaData?.crusts?.map(crust => (
-            <option key={crust} value={crust}>{crust}</option>
-          ))}
-        </select>
+<select className="crust-select" defaultValue={pizzaData?.crusts?.[0]}>
+  {Array.isArray(pizzaData?.crusts) && pizzaData.crusts.map(crust => (
+    <option key={crust} value={crust}>{crust}</option>
+  ))}
+</select>
+
 
         <button 
           onClick={() => onAddToCart(pizzaData)}
