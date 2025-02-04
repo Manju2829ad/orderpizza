@@ -4,7 +4,7 @@
   left: 0;
   width: 75vw;
   height: auto;
-  background-color: hsl(94, 100%, 99%);
+
   display: flex;  /* Added to align cards */
  flex-wrap: wrap;   /* To allow cards to wrap to next line */
 
@@ -15,7 +15,7 @@ justify-content: space-around;
 }
 
 .recommended-card {
-  background-color: #ffa705;
+  background-color: hsl(40, 54%, 92%);
   width: 350px;
   height: 350px;
    display: flex;/* Ensures content inside is laid out properly */
