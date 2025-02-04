@@ -4,7 +4,7 @@
   left: 0;
   width: 75vw;
   height: auto;
-  background-color: hwb(0 100% 0%);
+
   display: flex;  /* Added to align cards */
  flex-wrap: wrap;   /* To allow cards to wrap to next line */
 
@@ -15,7 +15,7 @@ justify-content: space-around;
 }
 
 .veg-pizza-card {
-  background-color: #ffa705;
+  background-color: hwb(165 28% 7%);
   width: 350px;
   height: 350px;
    display: flex;/* Ensures content inside is laid out properly */
@@ -149,3 +149,24 @@ width: 100px;
 height: 35px;
     padding: 3px 3px ;
 }
+
+
+
+.loading-spinner{
+
+  position: relative;
+  left: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+
+.loading-spinner ClipLoader{
+
+  size: 200;
+}
+
+
