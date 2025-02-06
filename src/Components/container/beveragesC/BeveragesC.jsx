@@ -1,6 +1,6 @@
 // BeveragesC Component without fetchPriceByPizzaId
 import React, { useContext, useState, useEffect } from "react";
-import BeveragesP from "../../presentational/beveragesp/BeveragesP";
+import BeveragesP from "../../presentational/beveragesP/BeveragesP"
 import { CartContext } from "../cartC/CartProvider";
 
 function BeveragesC() {
