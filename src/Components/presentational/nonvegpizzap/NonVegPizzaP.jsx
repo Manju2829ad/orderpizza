@@ -18,6 +18,9 @@ function NonVegPizzaP({ pizzaData = [], addToCart }) {
     });
     setCurrentPrices(prices);
     localStorage.setItem('currentPrices', JSON.stringify(prices));
+
+    console.log(pizzaData);
+
   }, [pizzaData, selectedSizes]);
 
   useEffect(() => {
@@ -74,7 +77,7 @@ function NonVegPizzaP({ pizzaData = [], addToCart }) {
               </div>
             ))
           : pizzaData
-          .filter((data) => data && data.category === 'nonveg')
+          .filter((data) => data && data.category === 'nonVeg')
           .map((data) => {
             console.log(data);  // Log each pizza data being mapped
             return (
@@ -89,7 +92,7 @@ function NonVegPizzaP({ pizzaData = [], addToCart }) {
                 handleAddToCart={handleAddToCart}
               />
             );
-          })};
+          })}
         
       </div>
 

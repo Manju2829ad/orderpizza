@@ -51,7 +51,7 @@
 .recommended-products {
   position: absolute;
   top: 300px;
-  left: 0;
+  left: 100px;
   width: 75vw;
   display: flex;
   flex-wrap: wrap;
@@ -61,7 +61,7 @@
 
 /* Recommended Product Card */
 .recommended-card {
-  background-color: hsl(40, 54%, 92%);
+  background-color: #3f3e3b;
   width: 350px;
   height: 350px;
   display: flex;
@@ -71,6 +71,7 @@
   border-radius: 10px;
   margin-bottom: 20px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: wheat;
 }
 
 .recommended-card:hover {
@@ -79,23 +80,28 @@
 }
 
 .recommended-image {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
+  width: 500px;
+  height: 100px;
+  object-fit: fill;
+  
   margin-bottom: 10px;
+  color: wheat;
 }
 
 .recommended-title {
   font-size: 1em;
   font-family: inherit;
   font-weight: bold;
+  position: relative;
+  top: 20px;
+  color: wheat;
 }
 
 .recommended-descp {
   font-size: 0.9em;
   color: hwb(240 2% 95%);
   text-align: center;
+  color: wheat;
 }
 
 .recommended-prices {

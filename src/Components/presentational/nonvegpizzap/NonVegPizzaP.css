@@ -1,128 +1,207 @@
+/* Container for all non-veg pizza products */
 .non-veg-pizza-products {
   position: absolute;
   top: 300px;
-  left: 0;
+  left: 100px;
   width: 70vw;
   height: auto;
-  background-color: rgb(192 252 136);
-  display: flex;  /* Added to align cards */
- flex-wrap: wrap;   /* To allow cards to wrap to next line */
+  background-color: rgb(192, 252, 136);
+  display: flex;  /* Aligning cards in flex */
+  flex-wrap: wrap; /* Allowing cards to wrap to next line */
+  justify-content: space-around; /* Distribute space evenly */
 
-       /* gap: 20px; */
-
-         /*  Adds space between the cards */
-justify-content: space-around;
 }
 
+/* Non-veg pizza card style */
 .nonvegcard {
   background-color: hsl(50deg 100% 56%);
   width: 350px;
   height: 350px;
-   display: flex;/* Ensures content inside is laid out properly */
+  display: flex; /* Ensures content inside is laid out properly */
   flex-direction: column; /* Content inside will stack vertically */
- align-items: center;   /* Centers the content horizontally */
- justify-content: center;  /*  Centers the content vertically */
- border-radius: 10px;
- margin-bottom: 20px;
+  align-items: center; /* Centers the content horizontally */
+  justify-content: center; /* Centers the content vertically */
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-right: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  animation: fadeIn 0.6s ease-out;
+  padding: 20px;
+  margin: 20px 20px ;
+  border: 10px solid black;
+
 }
 
+.nonvegcard:hover {
+  transform: translateY(-10px); /* Lifts the card */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increases shadow */
+}
 
+/* Image style inside the pizza card */
+.nonvegimage {
+  width: 70vw;
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px; /* Rounded corners for images */
+  transition: transform 0.3s ease;
+  border: 1px solid black;
+}
 
+.nonvegimage:hover {
+  transform: scale(1.05); /* Slight zoom effect on image hover */
+}
 
-
-
-.nonvegtitle{
+/* Title inside the pizza card */
+.nonvegtitle {
   font-size: 1em;
   font-family: inherit;
+  font-weight: bold;
+  margin: 10px 0;
+  color: hsl(246deg 98% 21%); /* Dark Blue color */
 }
 
-
-/*
-Limits the maximum width and height of an image, preventing it
- from exceeding certain dimensions.
-
-Often used with responsive designs to avoid oversized images.
-
-object-fit:
-
-
-Specifies how the image should be resized to fit its container. 
-Common values include fill, contain, cover, none, and scale-down.
-
-object-position:
-
-Adjusts the position of an image within its container when object-fit is applied.
-
-box-shadow:
-
-Adds a shadow around the image to create a sense of depth.
-
-filter:
-
-Applies visual effects such as grayscale, blur, brightness, etc.
-
-opacity:
-
-Controls the transparency of an image.
- The value ranges from 0 (fully transparent) to 1 (fully opaque).
-
- background-image:
-
-Sets an image as the background of an element. Common for decorative images.
-background-size
-
-Controls how a background image is sized within an element. 
-Common values are cover, contain, and specific dimensions.
-
-aspect-ratio:
-Ensures the image maintains a certain width-to-height ratio, 
-which is useful for responsive images.
-*/
-
-
-.nonvegdescp{
-  font-size: 1*em;
-position: relative;
-color:  hsl(240deg 70% 50%);
-}
-
-/*
-Hue: Specifies the type of color on the 360-degree color
- wheel (0 = red, 120 = green, 240 = blue, etc.).
-
-Saturation: Defines the intensity of the color. 100% is full saturation,
- and 0% is grayscale.
-
-Lightness: Determines how light or dark the color is. 0% is black,
- 100% is white, and 50% is the true color.
-
-
-
-*/
-
-
-
-.nonvegprices{
+/* Description of the pizza */
+.nonvegdescp {
   font-size: 1em;
-color: hsl(246deg 98% 21%); /* Bright yellow heading */
-font-weight: 700;
+  position: relative;
+  color: hsl(240deg 70% 50%); /* A bluish color */
+  margin: 10px 0;
 }
 
-
-.nonvegimage{
-border: 1px solid black;
-width: 70vw;
-max-width: 200px;
-max-height: 200px;
+/* Price of the pizza */
+.nonvegprices {
+  font-size: 1em;
+  color: hsl(246deg 98% 21%); /* Bright yellow heading */
+  font-weight: 700;
 }
 
+/* Skeleton loader styles */
+.skeleton {
+  background-color: #ddd;
+  border-radius: 8px;
+  animation: fadeIn 1s ease-out forwards;
+}
 
+.skeleton-image {
+  width: 100%;
+  height: 150px;
+  background-color: #ccc;
+  border-radius: 8px;
+  animation: skeleton-pulse 1.5s infinite ease-in-out;
+}
 
-.nonvegtext
+.skeleton-title,
+.skeleton-text {
+  background-color: #ccc;
+  margin-top: 10px;
+  border-radius: 4px;
+  animation: skeleton-pulse 1.5s infinite ease-in-out;
+}
 
-{
+@keyframes skeleton-pulse {
+  0% {
+    background-color: #ccc;
+  }
+  50% {
+    background-color: #ddd;
+  }
+  100% {
+    background-color: #ccc;
+  }
+}
+
+/* Keyframe for fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Cards will come up */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframe for charloutte color transition effect */
+@keyframes charloutteColor {
+  0% {
+    background-color: hsl(0deg, 100%, 75%);
+  }
+  50% {
+    background-color: hsl(160deg, 80%, 70%);
+  }
+  100% {
+    background-color: hsl(60deg, 100%, 50%);
+  }
+}
+
+/* Apply the charloutte color animation to titles */
+.nonvegtitle {
+  animation: charloutteColor 3s ease-in-out infinite;
+}
+
+/* Non-veg text styling */
+.nonvegtext {
   display: inline-block;
   padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  color: hsl(0deg, 0%, 20%);
+}
+
+/* Additional styling for the container and layout */
+.non-veg-pizza-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart-container {
+  margin-top: 30px;
+}
+
+/* Style for smaller screens */
+@media (max-width: 768px) {
+  .non-veg-pizza-products {
+    width: 100vw;
+    padding: 10px;
+  }
+
+  .nonvegcard {
+    width: 300px;
+    height: auto;
+  }
+
+  .nonvegimage {
+    width: 90vw;
+    max-width: 150px;
+  }
+}
 
 
+.non-veg-card{
+
+  margin: 20px 20px;
+  border: 1px solid black;
+  display: flex;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  box-sizing: border-box;
+ width: 67vw;
+}
+
+.non-veg-card img{
+  height: 250px;
+  width: 350px; /* Ensure the image scales within its container */
+  max-width: 400px; /* Set a maximum width of 250px */
+  /* height: auto;  */
+  /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image is contained within the bounds of the container */
+  display: block; /* Removes any inline spacing/margin */
 }
