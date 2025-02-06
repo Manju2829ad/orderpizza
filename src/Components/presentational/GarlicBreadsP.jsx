@@ -29,7 +29,8 @@ function GarlicBreadsP({ addToCart, pizzaData }) {
           pizzaData.map((pizza, index) => (
             <div key={index} className="Garlic-image-card">
               <div className="Garlic-image">
-                <img src={pizza.image || ""} alt={pizza.name || "Garlic Bread"} />
+                
+              <img src={`http://springpizzaapp.onrender.com${pizza.image}`} alt={pizza.name || "Garlic Bread"} />
               </div>
               <h3 className="garlic-title">{pizza.name || "Loading..."}</h3>
               <p className="garlic-desc">{pizza.description || "Delicious garlic bread waiting"}</p>

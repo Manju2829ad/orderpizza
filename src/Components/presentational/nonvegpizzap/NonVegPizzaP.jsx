@@ -1,18 +1,19 @@
 import React, { useState, useEffect, useCallback } from 'react';
-
-import "./NonVegPizzaP.css"; // New CSS file for non-veg pizzas
+import './NonVegPizzaP.css';
 import CartP from '../cartp/CartP';
 
-function NonVegPizzaP({ pizzaData = [], addToCart, handleIncrement, handleDecrement }) {
+function NonVegPizzaP({ pizzaData = [], addToCart }) {
   const [selectedSizes, setSelectedSizes] = useState({});
   const [selectedCrusts, setSelectedCrusts] = useState({});
   const [currentPrices, setCurrentPrices] = useState({});
+  const [loading, setLoading] = useState(true);
 
-  const updatePrices = useCallback(() => {
+  // Handle price updates based on selected size
+  useEffect(() => {
     const prices = {};
     pizzaData.forEach((pizza) => {
       const selectedSize = selectedSizes[pizza.id] || 'Regular';
-      const priceObj = pizza.prices?.find((price) => price.size === selectedSize);
+      const priceObj = pizza.prices.find((price) => price.size === selectedSize);
       prices[pizza.id] = priceObj ? priceObj.price : 0;
     });
     setCurrentPrices(prices);
@@ -20,15 +21,21 @@ function NonVegPizzaP({ pizzaData = [], addToCart, handleIncrement, handleDecrem
   }, [pizzaData, selectedSizes]);
 
   useEffect(() => {
-    updatePrices();
-  }, [updatePrices]);
+    if (window.Worker) {
+      const worker = new Worker(new URL("./dataWorker.js", import.meta.url));
 
-  useEffect(() => {
-    const savedPrices = localStorage.getItem('currentPrices');
-    if (savedPrices) {
-      setCurrentPrices(JSON.parse(savedPrices));
+      worker.postMessage(pizzaData);
+
+      worker.onmessage = (event) => {
+        const hasData = event.data;
+        setLoading(!hasData);
+        worker.terminate(); // Clean up the worker
+      };
+    } else {
+      // Fallback for unsupported environments
+      setLoading(pizzaData.length === 0);
     }
-  }, []);
+  }, [pizzaData]);
 
   const handleSizeChange = useCallback((id, newSize) => {
     setSelectedSizes((prevSizes) => ({
@@ -44,42 +51,57 @@ function NonVegPizzaP({ pizzaData = [], addToCart, handleIncrement, handleDecrem
     }));
   }, []);
 
-  const handleAddToCart = useCallback((pizza) => {
-    const selectedSize = selectedSizes[pizza.id] || 'Regular';
-    const selectedCrust = selectedCrusts[pizza.id] || 'Hand Tossed';
-    addToCart(pizza, selectedSize, selectedCrust);
-  }, [addToCart, selectedSizes, selectedCrusts]);
+  const handleAddToCart = useCallback(
+    (pizza) => {
+      const selectedSize = selectedSizes[pizza.id] || 'Regular';
+      addToCart(pizza, selectedSize);
+    },
+    [addToCart, selectedSizes]
+  );
+
+  const skeletonCards = Array.from({ length: 9 });
 
   return (
     <div className='non-veg-pizza-page'>
       <div className='non-veg-pizza-products'>
-        {pizzaData
-          .filter((data) => data && data.category === 'nonVeg') // Filter for non-vegetarian pizzas
-          .map((data) => (
-            <MemoizedNonVegPizzaCard
-              key={data.id}
-              pizza={data}
-              selectedSize={selectedSizes[data.id] || 'Regular'}
-              selectedCrust={selectedCrusts[data.id] || 'Hand Tossed'}
-              currentPrice={currentPrices[data.id] || 0}
-              handleSizeChange={handleSizeChange}
-              handleCrustChange={handleCrustChange}
-              handleAddToCart={handleAddToCart}
-              handleIncrement={handleIncrement}
-              handleDecrement={handleDecrement}
-            />
-          ))}
+        {loading
+          ? skeletonCards.map((_, index) => (
+              <div key={index} className='non-veg-card skeleton'>
+                <p>Loading...</p>
+                <div className='skeleton-image' />
+                <div className='skeleton-title' />
+                <div className='skeleton-text' />
+              </div>
+            ))
+          : pizzaData
+          .filter((data) => data && data.category === 'nonveg')
+          .map((data) => {
+            console.log(data);  // Log each pizza data being mapped
+            return (
+              <MemoizedPizzaCard
+                key={data.id}
+                pizza={data}
+                selectedSize={selectedSizes[data.id] || 'Regular'}
+                selectedCrust={selectedCrusts[data.id] || 'Hand Tossed'}
+                currentPrice={currentPrices[data.id] || 0}
+                handleSizeChange={handleSizeChange}
+                handleCrustChange={handleCrustChange}
+                handleAddToCart={handleAddToCart}
+              />
+            );
+          })};
+        
       </div>
 
       <div className='cart-container'>
-        <MemoizedCartP prices={currentPrices} />
+        <CartP />
       </div>
     </div>
   );
 }
 
-// Memoized non-vegetarian pizza card
-const NonVegPizzaCard = ({
+// Pizza Card Component for Non-Veg Pizza
+const PizzaCard = ({
   pizza,
   selectedSize,
   selectedCrust,
@@ -87,41 +109,28 @@ const NonVegPizzaCard = ({
   handleSizeChange,
   handleCrustChange,
   handleAddToCart,
-  handleIncrement,
-  handleDecrement,
 }) => {
   const sizesArray = typeof pizza.sizes === 'string' ? pizza.sizes.split(',') : pizza.sizes;
   const crustsArray = typeof pizza.crust === 'string' ? pizza.crust.split(',') : pizza.crust;
 
   return (
-    <div className='nonvegcard'>
-      <div className="nonvegimage">
-        <img src={pizza.image || ''} alt={pizza.name || 'Pizza'} />
+    <div className='non-veg-card'>
+      <div className='non-veg-image'>
+        <img
+          src={`http://springpizzaapp.onrender.com${pizza.image}` || ''}
+          alt={pizza.name || 'Pizza'}
+        />
       </div>
-      <h3 className='nonvegtitle'>{pizza.name}</h3>
-      <p className='nonvegdescp'>{pizza.description}</p>
-      <span className='nonvegprices'>₹ {currentPrice}</span>
+      <h3 className='non-veg-title'>{pizza.name}</h3>
+      <p className='non-veg-desc'>{pizza.description}</p>
+      <span className='non-veg-price'>₹ {currentPrice}</span>
 
-      {pizza.inCart ? (
-        <div className="nonvegbuttons">
-          <button className="nonvegincrease" onClick={() => handleIncrement(pizza.id)}>
-            <span className="nonvegplus">+</span>
-          </button>
-          <span className="nonvegquantity">{pizza.quantity}</span>
-          <button className="nonvegdecrease" onClick={() => handleDecrement(pizza.id)}>
-            <span className="nonvegminus">-</span>
-          </button>
-        </div>
-      ) : (
-        <div className="nonvegaddtocart">
-          <button onClick={() => handleAddToCart(pizza)}>
-            <span className="nonvegtext">Add to Cart</span>
-          </button>
-        </div>
-      )}
+      <div className='non-veg-add-to-cart'>
+        <button onClick={() => handleAddToCart(pizza)}>Add to Cart</button>
+      </div>
 
       <select
-        className="nonvegsizedropdown"
+        className='non-veg-size-dropdown'
         value={selectedSize}
         onChange={(e) => handleSizeChange(pizza.id, e.target.value)}
       >
@@ -133,7 +142,7 @@ const NonVegPizzaCard = ({
       </select>
 
       <select
-        className="nonvegcrust-size"
+        className='non-veg-crust-dropdown'
         value={selectedCrust}
         onChange={(e) => handleCrustChange(pizza.id, e.target.value)}
       >
@@ -147,7 +156,6 @@ const NonVegPizzaCard = ({
   );
 };
 
-const MemoizedNonVegPizzaCard = React.memo(NonVegPizzaCard);
-const MemoizedCartP = React.memo(CartP);
+const MemoizedPizzaCard = React.memo(PizzaCard);
 
 export default NonVegPizzaP;

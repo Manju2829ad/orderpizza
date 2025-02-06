@@ -31,7 +31,7 @@ function NewLaunchesP({ pizza = [] }) {
         ) : (
           pizza.map((element) => (
             <div className="NewLaunchesP__Card" key={element.id}>
-              <img src={element.image} alt={element.name} className="NewLaunchesP__Image" />
+              <img src={`http://springpizzaapp.onrender.com${element.image}`} alt={element.name} className="NewLaunchesP__Image" />
               <span className="NewLaunchesP__Name">{element.name}</span>
               <p className="NewLaunchesP__Description">{element.description}</p>
               <select className="NewLaunchesP__SelectSize">

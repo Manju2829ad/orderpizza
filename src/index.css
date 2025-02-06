@@ -34,3 +34,13 @@ body {
 }
 
 
+/* Universal image styling */
+img {
+  height: 150px;
+  width: 100%; /* Ensure the image scales within its container */
+  max-width: 450px; /* Set a maximum width of 250px */
+  /* height: auto;  */
+  /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the image is contained within the bounds of the container */
+  display: block; /* Removes any inline spacing/margin */
+}

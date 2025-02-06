@@ -34,7 +34,7 @@ function VegPizzaP({ pizzaData = [] }) {
               <div className="VegPizzaP__Card" key={element.id}>
                 <img 
                   className="VegPizzaP__Image" 
-                  src={element.image || 'default-placeholder.png'} 
+                  src={`http://springpizzaapp.onrender.com${element.image}` || 'default-placeholder.png'} 
                   alt={element.name || 'Pizza'} 
                 />
                 <span className="VegPizzaP__Name">{element.name}</span>

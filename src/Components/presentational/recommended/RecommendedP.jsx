@@ -114,7 +114,7 @@ const PizzaCard = ({
   return (
     <div className='recommended-card'>
       <div className='recommended-image'>
-        <img src={pizza.image || ''} alt={pizza.name || 'Pizza'} />
+        <img src={`http://springpizzaapp.onrender.com${pizza.image}` || ''} alt={pizza.name || 'Pizza'} />
       </div>
       <h3 className='recommended-title'>{pizza.name}</h3>
       <p className='recommended-descp'>{pizza.description}</p>

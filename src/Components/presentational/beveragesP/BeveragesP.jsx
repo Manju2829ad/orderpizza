@@ -24,7 +24,7 @@ function BeveragesP({ beveragesData = [], addToCart, loading, error }) {
           <div className="BeveragesP__Card" key={beverage.id}>
             <img
               className="BeveragesP__Image"
-              src={beverage.image || "default-placeholder.png"}
+              src={`http://springpizzaapp.onrender.com${beverage.image}` || "default-placeholder.png"}
               alt={beverage.name || "Beverage"}
             />
             <span className="BeveragesP__Name">{beverage.name}</span>
