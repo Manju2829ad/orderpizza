@@ -2,11 +2,12 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
-import CartC from './Components/container/cartC/CartContext.jsx';
-import NewLaunchContext from './Components/newlaunchContext/NewLaunchContext.jsx';
+import CartProvider from './Components/container/cartC/CartProvider.jsx';
+
 
 // Import Auth0Provider
 import { Auth0Provider } from '@auth0/auth0-react';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -19,11 +20,9 @@ createRoot(document.getElementById('root')).render(
       }}
     > */}
       {/* Other context providers and your app */}
-      <CartC>
-        <NewLaunchContext>
+      <CartProvider>
           <App />
-        </NewLaunchContext>
-      </CartC>
+      </CartProvider>
     {/* </Auth0Provider> */}
   </StrictMode>,
 );

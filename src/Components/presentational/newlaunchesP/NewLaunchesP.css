@@ -1,60 +1,101 @@
-
-
-
 .Container {
-    border: 1px solid black;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    height: auto;
-    position: relative;
-    top: 300px;
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: auto;
+  position: relative;
+  top: 300px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid hsl(0deg 0% 2%);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.card span {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card p {
+  font-size: 0.9em;
+  color: #666;
+  line-height: 1.4;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Skeleton loader styles */
+.card.skeleton {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  animation: skeleton-loading 1.5s infinite linear;
+}
+
+.card.skeleton .image-placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.card.skeleton .text-placeholder {
+  width: 80%;
+  height: 15px;
+  background-color: #ccc;
+  margin: 10px auto;
+  border-radius: 4px;
+}
+
+.card.skeleton p.text-placeholder {
+  width: 90%;
+  height: 12px;
+  background-color: #ccc;
+  margin: 10px auto;
+  border-radius: 4px;
+}
+
+/* Skeleton animation */
+@keyframes skeleton-loading {
+  0% {
+    background-color: #e0e0e0;
   }
-  
-  .card {
-    background-color: #fff;
-    border: 1px solid hsl(0deg 0% 2%);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
-    width: 300px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.2s ease-in-out;
+  50% {
+    background-color: #f0f0f0;
   }
-  
-  .card:hover {
-    transform: translateY(-10px);
+  100% {
+    background-color: #e0e0e0;
   }
-  
-  .card img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
-  }
-  
-  .card span {
-    display: block;
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .card p {
-    font-size: 0.9em;
-    color: #666;
-    line-height: 1.4;
-  }
-  
-  h1 {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 30px;
-    color: #333;
-  }
-  
+}

@@ -6,8 +6,9 @@ function RecommendedP({ pizzaData = [], addToCart2 }) {
   const [selectedSizes, setSelectedSizes] = useState({});
   const [selectedCrusts, setSelectedCrusts] = useState({});
   const [currentPrices, setCurrentPrices] = useState({});
+  const [loading, setLoading] = useState(true);
 
-  // Update prices based on selected size for all pizzas
+  // Handle price updates based on selected size
   useEffect(() => {
     const prices = {};
     pizzaData.forEach((pizza) => {
@@ -19,13 +20,11 @@ function RecommendedP({ pizzaData = [], addToCart2 }) {
     localStorage.setItem('currentPrices', JSON.stringify(prices));
   }, [pizzaData, selectedSizes]);
 
-  // Load prices from localStorage when the component mounts
   useEffect(() => {
-    const savedPrices = localStorage.getItem('currentPrices');
-    if (savedPrices) {
-      setCurrentPrices(JSON.parse(savedPrices));
+    if (pizzaData.length > 0) {
+      setLoading(false);
     }
-  }, []);
+  }, [pizzaData]);
 
   const handleSizeChange = useCallback((id, newSize) => {
     setSelectedSizes((prevSizes) => ({
@@ -41,41 +40,51 @@ function RecommendedP({ pizzaData = [], addToCart2 }) {
     }));
   }, []);
 
-  const handleAddToCart = useCallback((pizza) => {
-    const selectedSize = selectedSizes[pizza.id] || 'Regular';
-    const selectedCrust = selectedCrusts[pizza.id] || 'Hand Tossed';
-    addToCart2(pizza, selectedSize);
-  }, [addToCart2, selectedSizes, selectedCrusts]);
+  const handleAddToCart = useCallback(
+    (pizza) => {
+      const selectedSize = selectedSizes[pizza.id] || 'Regular';
+      addToCart2(pizza, selectedSize);
+    },
+    [addToCart2, selectedSizes]
+  );
+
+  const skeletonCards = Array.from({ length: 6 });
 
   return (
     <div className='recommended-page'>
-      {/* Recommended Products */}
       <div className='recommended-products'>
-        {pizzaData
-          .filter((data) => data && data.category === 'recommended') // Filter for recommended pizzas
-          .map((data) => (
-            <MemoizedPizzaCard
-              key={data.id}
-              pizza={data}
-              selectedSize={selectedSizes[data.id] || 'Regular'}
-              selectedCrust={selectedCrusts[data.id] || 'Hand Tossed'}
-              currentPrice={currentPrices[data.id] || 0}
-              handleSizeChange={handleSizeChange}
-              handleCrustChange={handleCrustChange}
-              handleAddToCart={handleAddToCart}
-            />
-          ))}
+        {loading
+          ? skeletonCards.map((_, index) => (
+              <div key={index} className='recommended-card skeleton'>
+                <p style={{color:"black",fontSize:'1rem'}}>loading...</p>
+                <div className='recommended-skeleton-image' />
+                <div className='recommended-skeleton-title' />
+                <div className='recommended-skeleton-text' />
+              </div>
+            ))
+          : pizzaData
+              .filter((data) => data && data.category === 'recommended')
+              .map((data) => (
+                <MemoizedPizzaCard
+                  key={data.id}
+                  pizza={data}
+                  selectedSize={selectedSizes[data.id] || 'Regular'}
+                  selectedCrust={selectedCrusts[data.id] || 'Hand Tossed'}
+                  currentPrice={currentPrices[data.id] || 0}
+                  handleSizeChange={handleSizeChange}
+                  handleCrustChange={handleCrustChange}
+                  handleAddToCart={handleAddToCart}
+                />
+              ))}
       </div>
 
-      {/* CartP Rendering */}
       <div className='recommended-cart-container'>
-        <CartP /> {/* This renders the CartP component */}
+        <CartP />
       </div>
     </div>
   );
 }
 
-// Memoize the pizza card component to prevent unnecessary re-renders
 const PizzaCard = ({
   pizza,
   selectedSize,
@@ -90,23 +99,19 @@ const PizzaCard = ({
 
   return (
     <div className='recommended-card'>
-      <div className="recommended-image">
+      <div className='recommended-image'>
         <img src={pizza.image || ''} alt={pizza.name || 'Pizza'} />
       </div>
       <h3 className='recommended-title'>{pizza.name}</h3>
       <p className='recommended-descp'>{pizza.description}</p>
       <span className='recommended-prices'>₹ {currentPrice}</span>
 
-      {/* Add to cart button */}
-      <div className="recommended-addtocart">
-        <button className="recommended-text" onClick={() => handleAddToCart(pizza)}>
-          <span >Add to Cart</span>
-        </button>
+      <div className='recommended-addtocart'>
+        <button onClick={() => handleAddToCart(pizza)}>Add to Cart</button>
       </div>
 
-      {/* Size dropdown */}
       <select
-        className="recommended-sizedropdown"
+        className='recommended-sizedropdown'
         value={selectedSize}
         onChange={(e) => handleSizeChange(pizza.id, e.target.value)}
       >
@@ -117,12 +122,11 @@ const PizzaCard = ({
         ))}
       </select>
 
-      {/* Crust dropdown */}
       <select
-        className="recommended-crust-size"
+        className='recommended-crust-size'
         value={selectedCrust}
         onChange={(e) => handleCrustChange(pizza.id, e.target.value)}
-      > 
+      >
         {crustsArray.map((crust, index) => (
           <option key={index} value={crust}>
             {crust}

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; // For navigation
-import { CartContext } from '../../container/cartC/CartContext';
+import { CartContext } from '../../container/cartC/CartProvider';
 import './CartP.css';
 
 function CartP() {

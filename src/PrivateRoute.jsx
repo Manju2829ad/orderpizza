@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
 import { Route, Navigate } from 'react-router-dom';
 
-import { CartContext } from './Components/container/cartC/CartContext';
+import CartProvider from './Components/container/cartC/CartProvider';
+
+
+
+
 const PrivateRoute = ({ element: Component, ...rest }) => {
-  const { auth } = useContext(CartContext); // Access authentication state
+  const { auth } = useContext(CartProvider); // Access authentication state
 
 
   return (

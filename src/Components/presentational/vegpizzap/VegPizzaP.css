@@ -1,161 +1,120 @@
+.pp{
+
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 4rem;
+  position: relative;
+  right: 300px;
+font-variant: small-caps;
+color: black;
+}
+
 .veg-pizza-products {
   position: absolute;
   top: 300px;
   left: 0;
   width: 75vw;
   height: auto;
-
-  display: flex;  /* Added to align cards */
- flex-wrap: wrap;   /* To allow cards to wrap to next line */
-
-       /* gap: 20px; */
-
-         /*  Adds space between the cards */
-justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
 }
 
+
+
+
+
+.main-loader{
+
+  position: relative;
+  left: 500px;
+
+}
 .veg-pizza-card {
   background-color: rgb(226, 234, 232);
   width: 350px;
   height: 350px;
-   display: flex;/* Ensures content inside is laid out properly */
-  flex-direction: column; /* Content inside will stack vertically */
- align-items: center;   /* Centers the content horizontally */
- justify-content: center;  /*  Centers the content vertically */
- border-radius: 10px;
- margin-bottom: 20px;
- margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
+.veg-pizza-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
 
+.veg-pizza-title {
+  font-size: 1.2em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  margin: 10px 0;
+}
 
-
-
-
-.veg-pizza-title{
+.veg-pizza-descp {
   font-size: 1em;
-  font-family: inherit;
+  position: relative;
+  color: #333;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 8px;
 }
 
-
-/*
-Limits the maximum width and height of an image, preventing it
- from exceeding certain dimensions.
-
-Often used with responsive designs to avoid oversized images.
-
-object-fit:
-
-
-Specifies how the image should be resized to fit its container. 
-Common values include fill, contain, cover, none, and scale-down.
-
-object-position:
-
-Adjusts the position of an image within its container when object-fit is applied.
-
-box-shadow:
-
-Adds a shadow around the image to create a sense of depth.
-
-filter:
-
-Applies visual effects such as grayscale, blur, brightness, etc.
-
-opacity:
-
-Controls the transparency of an image.
- The value ranges from 0 (fully transparent) to 1 (fully opaque).
-
- background-image:
-
-Sets an image as the background of an element. Common for decorative images.
-background-size
-
-Controls how a background image is sized within an element. 
-Common values are cover, contain, and specific dimensions.
-
-aspect-ratio:
-Ensures the image maintains a certain width-to-height ratio, 
-which is useful for responsive images.
-*/
-
-
-.veg-pizza-descp{
-  font-size: 1em;
-position: relative;
-color:  hwb(0 0% 96%);
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.veg-pizza-prices {
+  font-size: 1.2em;
+  color: hsl(246, 98%, 21%);
+  font-weight: 700;
 }
 
-/*
-Hue: Specifies the type of color on the 360-degree color
- wheel (0 = red, 120 = green, 240 = blue, etc.).
-
-Saturation: Defines the intensity of the color. 100% is full saturation,
- and 0% is grayscale.
-
-Lightness: Determines how light or dark the color is. 0% is black,
- 100% is white, and 50% is the true color.
-
-
-
-*/
-
-
-
-.veg-pizza-prices{
-  font-size: 1em;
-color: hsl(246deg 98% 21%); /* Bright yellow heading */
-font-weight: 700;
+.veg-pizza-image {
+  border: 1px solid black;
+  width: 70vw;
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease-in-out;
 }
 
-
-.veg-pizza-image{
-border: 1px solid black;
-width: 70vw;
-max-width: 200px;
-max-height: 200px;
+.veg-pizza-image:hover {
+  transform: scale(1.05);
 }
 
-
-
-.veg-pizza-text{
+.veg-pizza-text {
   display: inline-block;
   padding: 10px 20px;
-}
-
-.recommended-crust-size{
-
-  width:fit-content;
-    min-height: 20px;  
-    background-color: hwb(212 5% 0%);
-    display: inline-block;
-    cursor: pointer;
-color: white;
-padding: 10px 10px;
-border-radius: 15px;
-font-size: 16px;
-
-margin-bottom: 10px;
-}
-
-.veg-pizza-text{
-
-  margin-bottom: 10px;
+  background-color: #e3f2fd;
   border-radius: 15px;
-  display: block;
-width: 100px;
-height: 35px;
-    padding: 3px 3px ;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #333;
+  cursor: pointer;
 }
 
+.recommended-crust-size {
+  width: fit-content;
+  min-height: 20px;
+  background-color: hwb(212 5% 0%);
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 15px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
 
-
-.loading-spinner{
-
-  position: relative;
-  left: 400px;
+.loading-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -163,10 +122,47 @@ height: 35px;
 
 }
 
-
-.loading-spinner ClipLoader{
-
-  size: 200;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
+.veg-pizza-card {
+  animation: fadeIn 0.5s ease-in-out;
+}
 
+/* 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+
+@keyframes pulse {
+  0% {
+    background-color: hsl(0, 3%, 50%);
+  }
+  50% {
+    background-color: #f5f5f5;
+  }
+  100% {
+    background-color: hsl(0, 5%, 60%);
+  }
+}
+
+.veg-pizza-card.loading-skeleton {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.veg-pizza-card.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}

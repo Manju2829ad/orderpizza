@@ -7,6 +7,7 @@ import NewLaunchesC from '../newlaunchesC/NewLaunchesC';
 import PizzaManiaC from '../pizzamaniaC/PizzaManiaC';
 
 import BeveragesC from '../beveragesC/BeveragesC';
+import GarlicBreadsC from '../GarlicBreadsC';
 
 export const getNavObject = () => {
   const navItems = [
@@ -18,7 +19,7 @@ export const getNavObject = () => {
     // { id: 5, name: 'Gourmet Pizza', path: '/gourmet-pizza' },
     { id: 6, name: 'Non-Veg Pizza', path: '/non-veg-pizza', element: <NonVegPizzaC /> },
     { id: 7, name: 'Beverages', path: '/beverages' ,element:<BeveragesC/>},
-    { id: 8, name: 'Garlic Breads & More', path: '/garlic-breads-more' },
+    { id: 8, name: 'Garlic Breads & More', path: '/garlic-breads-more',element:<GarlicBreadsC/>},
     { id: 9, name: 'Pizza Mania', path: '/pizza-mania',element:<PizzaManiaC/> },
     // { id: 10, name: 'Value Combos', path: '/value-combos' },
     // { id: 11, name: 'Desserts', path: '/desserts' },

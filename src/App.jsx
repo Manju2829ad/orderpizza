@@ -29,6 +29,7 @@ function App() {
               <Route key={item.id} path={item.path} element={item.element} />
             ))}
 
+        
             {/* Other Routes */}
             <Route path="/profile" element={<ProfileC />} />
             <Route path="/login" element={<LoginContainer />} />

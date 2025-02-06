@@ -1,7 +1,7 @@
 import { useContext,useState,useEffect } from 'react';
 
 import NonVegPizzaP from '../../presentational/nonvegpizzap/NonVegPizzaP'
-import { CartContext } from '../cartC/CartContext.jsx';
+import { CartContext } from '../cartC/CartProvider';
 
 
 function NonVegPizzaC() {

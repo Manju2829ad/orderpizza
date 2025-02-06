@@ -1,6 +1,6 @@
 import React,{useContext, useEffect, useState} from 'react'
 import PizzaManiaP from '../../presentational/pizzamaniaP/PizzaManiaP'
-import { CartContext } from '../cartC/CartContext'
+import { CartContext } from '../cartC/CartProvider'
 
 /*
 Operator Precedence (from highest to lowest):

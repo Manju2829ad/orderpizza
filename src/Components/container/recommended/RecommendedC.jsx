@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import RecommendedP from '../../presentational/recommended/RecommendedP';
-import { CartContext } from '../cartC/CartContext.jsx'; // Import the CartContext
+import { CartContext } from '../cartC/CartProvider';
+
+
 
 function RecommendedC() {
   const { addToCart,addToCart2, incrementCart, decrementCart, fetchPizza } = useContext(CartContext); // Destructure context values
@@ -28,19 +30,17 @@ function RecommendedC() {
     console.error("Cart context is not properly set.");
   }
 
+
+
   return (
     <div>
-      <h2>Recommended Pizzas</h2>
       <RecommendedP
-
                decrementCart={decrementCart}
         incrementCart={incrementCart}
       //  prices={prices} // Ensure prices is defined in your context or imported correctly
         pizzaData={pizzaData} // Pass the pizza data state instead of the fetch method
         addToCart={addToCart}
         addToCart2={addToCart2}
-
-      
       />
     </div>
   );

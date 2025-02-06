@@ -1,49 +1,42 @@
-/* General styling for the body */
-
+/* General container styling for CartP */
 .cartp {
-    position: fixed; /* Change to relative if you want it in the normal flow */
-    top: 0; /* Adjust as necessary */
-    left: 800px; /* Move it away from the edge */
-    width: 250px; /* Set a fixed width */
-    z-index: 10; /* Ensure it is on top of other elements */
-    box-shadow: 0 4px 10px rgb(0 0 0 / 10%); /* Optional: add shadow for better visibility */
-    background-color: white; /* Background color for visibility */
-    padding: 10px; /* Some padding for aesthetics */
+    position: fixed;
+    top: 10px; /* Adjust as necessary */
+    left: 800px;
+    width: 250px;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 10px;
 }
-
-
 
 /* General container styling for PizzaMania */
 .pizza-mania-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-    gap: 20px; /* Space between cards */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
     padding: 20px;
-    width: 70vw; /* Set to 70% of viewport width */
-    margin: 0 auto; /* Center the container */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    height: auto; /* Ensure the height is flexible */
+    max-width: 90vw;
+    margin: 0 auto;
+    overflow-x: hidden;
     position: relative;
-    top: 500px;
-    right: 200px;
+    top: 100px;
 }
 
 /* Card styling for PizzaMania */
 .pizza-card {
-    background-color: white;
+    background-color: #ffa705;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease-in-out;
-    max-width: 300px; /* Adjust based on your design */
-    background-color: #ffa705;
-    position: relative;
-    top: 50px;
+    max-width: 300px;
+    margin: auto;
 }
 
 .pizza-card:hover {
-    transform: scale(1.03); /* Add a slight hover effect */
+    transform: scale(1.03);
 }
 
 /* Pizza image styling */
@@ -58,30 +51,29 @@
 .pizza-card span {
     font-size: 18px;
     font-weight: bold;
-    color: hsl(0, 58%, 5%);
+    color: #333;
     display: block;
     margin-bottom: 10px;
 }
 
 /* Description styling */
 .pizza-card p {
-    font-size: 14px;
-    color: hsl(0, 100%, 2%);
-    margin-bottom: 15px;
     font-size: 16px;
+    color: #111;
+    margin-bottom: 15px;
 }
 
 /* Add to Cart button styling */
 .pizza-card button {
-
     margin-bottom: 10px;
     border-radius: 15px;
-    display: block;
-  width: 100px;
-  height: 35px;
-      padding: 3px 3px ;
-      position: relative;
-      left: 100px;
+    width: 100px;
+    height: 35px;
+    padding: 3px 3px;
+    background-color: #ff5f5f;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 .pizza-card button:hover {
@@ -89,54 +81,49 @@
 }
 
 /* Size and Crust dropdowns */
-.selectsize
-
-
-{
-
-    width:fit-content;
-    min-height: 25px;  
-    background-color: hwb(0 100% 0%); 
-    display: inline-block;
+.selectsize, .selectcrust {
+    width: fit-content;
+    min-height: 25px;
+    background-color: #ff0d0d;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: none;
     cursor: pointer;
-    background-color: rgb(255, 13, 13);
-    display: inline-block;
-    cursor: pointer;
-  color: white;
-  padding: 10px 10px;
-  border-radius: 15px;
-  font-size: 16px;
-  margin-bottom: 10px;
-
-
 }
-
-
 
 .selectcrust {
-    
-
-    width:fit-content;
-    min-height: 20px;  
-    background-color: hwb(212 5% 0%);
-    display: inline-block;
-    cursor: pointer;
-color: white;
-padding: 10px 10px;
-border-radius: 15px;
-font-size: 16px;
-
-margin-bottom: 10px;
+    background-color: #007bff;
 }
-
 
 /* Error message styling */
 .pizza-error {
-    color: #000000;
+    color: #000;
     text-align: center;
 }
 
-.text{
-
+.text {
     color: black;
+}
+
+/* Skeleton animation keyframe */
+@keyframes skeleton-loading {
+    0% {
+        background-color: #e0e0e0;
+    }
+    100% {
+        background-color: #f0f0f0;
+    }
+}
+
+/* Skeleton card for loading */
+.skeleton {
+    animation: skeleton-loading 1.5s linear infinite alternate;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    height: 200px;
+    width: 300px;
+    margin: auto;
 }
