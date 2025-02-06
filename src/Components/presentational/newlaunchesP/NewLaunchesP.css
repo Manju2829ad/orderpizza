@@ -1,40 +1,43 @@
-.Container {
-  border: 1px solid black;
+/* Container Styling */
+.NewLaunchesP__Container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   gap: 20px;
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  height: auto;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: relative;
-  top: 300px;
+  top: 200px;
+  left: 100px;
 }
 
-.card {
+/* Card Styling */
+.NewLaunchesP__Card {
   background-color: #fff;
-  border: 1px solid hsl(0deg 0% 2%);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
-  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 280px;
   padding: 20px;
   text-align: center;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.card:hover {
-  transform: translateY(-10px);
+.NewLaunchesP__Card:hover {
+  transform: translateY(-8px);
 }
 
-.card img {
+.NewLaunchesP__Image {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 12px;
   margin-bottom: 15px;
 }
 
-.card span {
+.NewLaunchesP__Name {
   display: block;
   font-size: 1.2em;
   font-weight: bold;
@@ -42,53 +45,56 @@
   color: #333;
 }
 
-.card p {
+.NewLaunchesP__Description {
   font-size: 0.9em;
   color: #666;
-  line-height: 1.4;
-}
-
-h1 {
-  text-align: center;
-  font-size: 2em;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-/* Skeleton loader styles */
-.card.skeleton {
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  box-shadow: none;
-  animation: skeleton-loading 1.5s infinite linear;
-}
-
-.card.skeleton .image-placeholder {
-  width: 100%;
-  height: 200px;
-  background-color: #ccc;
-  border-radius: 8px;
   margin-bottom: 15px;
 }
 
-.card.skeleton .text-placeholder {
+.NewLaunchesP__AddToCartButton {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.NewLaunchesP__AddToCartButton:hover {
+  background-color: #e59400;
+}
+
+/* Skeleton Loader Styles */
+.NewLaunchesP__Skeleton {
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  width: 280px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 300px;
+  animation: skeleton-animation 1.2s infinite ease-in-out;
+}
+
+.NewLaunchesP__ImagePlaceholder {
+  width: 100%;
+  height: 200px;
+  background-color: #ccc;
+  border-radius: 12px;
+}
+
+.NewLaunchesP__TextPlaceholder {
   width: 80%;
   height: 15px;
-  background-color: #ccc;
+  background-color: #ddd;
   margin: 10px auto;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
-.card.skeleton p.text-placeholder {
-  width: 90%;
-  height: 12px;
-  background-color: #ccc;
-  margin: 10px auto;
-  border-radius: 4px;
-}
-
-/* Skeleton animation */
-@keyframes skeleton-loading {
+/* Skeleton Animation */
+@keyframes skeleton-animation {
   0% {
     background-color: #e0e0e0;
   }
@@ -97,5 +103,6 @@ h1 {
   }
   100% {
     background-color: #e0e0e0;
-  }
+}
+
 }

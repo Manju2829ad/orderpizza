@@ -8,7 +8,7 @@ const UseCartLogic = () => {
   });
 
   const [currentPrices, setCurrentPrices] = useState(() => {
-    const savedPrices = localStorage.getItem('currentPrices');
+    const savedPrices =localStorage.getItem('currentPrices');
     return savedPrices ? JSON.parse(savedPrices) : {};
   });
 
@@ -148,6 +148,9 @@ const UseCartLogic = () => {
       }
 
       const data = await response.json();
+      console.log("beverages?:", JSON.stringify(data, null, 2));
+
+      if(data)
       return data;
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);

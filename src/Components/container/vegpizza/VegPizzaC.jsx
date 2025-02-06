@@ -63,6 +63,56 @@ function VegPizzaC() {
     );
   };
 
+  // const handleAddToCart = async (pizza) => {
+  //   try {
+  //     await addToCart(pizza);
+  //     updatePizzaState(pizza.id, { inCart: true, quantity: (pizza.quantity || 0) + 1 });
+  //   } catch (err) {
+  //     console.error("Failed to add to cart:", err);
+  //   }
+  // };
+
+  // const handleIncrement = async (pizzaId) => {
+  //   try {
+  //     await incrementCart(pizzaId);
+  //     updatePizzaState(pizzaId, { quantity: (pizzaData.find(p => p.id === pizzaId)?.quantity || 0) + 1 });
+  //   } catch (err) {
+  //     console.error("Failed to increment quantity:", err);
+  //   }
+  // };
+
+  // const handleDecrement = async (pizzaId) => {
+  //   try {
+  //     await decrementCart(pizzaId);
+  //     updatePizzaState(pizzaId, {
+  //       quantity: Math.max((pizzaData.find(p => p.id === pizzaId)?.quantity || 0) - 1, 0),
+  //     });
+  //   } catch (err) {
+  //     console.error("Failed to decrement quantity:", err);
+  //   }
+  // };
+
+//   return (
+//     <div className="veg-pizza-container">
+//       <h2 className="veg-pizza-title">Veg Pizzas</h2>
+
+//       {error ? (
+//         <div className="error-message">
+//           {error}
+//           <button onClick={() => window.location.reload()}>Try Again</button>
+//         </div>
+//       ) : (
+//         <VegPizzaP
+//           pizzaData={pizzaData}
+//            loading={loading}
+//           onAddToCart={handleAddToCart}
+//           handleIncrement={handleIncrement}
+//           handleDecrement={handleDecrement}
+//         />
+//       )}
+//     </div>
+//   );
+// }
 
 
   // Load pizza data when component mounts

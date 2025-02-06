@@ -2,6 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './RecommendedP.css';
 import CartP from '../cartp/CartP';
 
+
+
+
 function RecommendedP({ pizzaData = [], addToCart2 }) {
   const [selectedSizes, setSelectedSizes] = useState({});
   const [selectedCrusts, setSelectedCrusts] = useState({});
@@ -21,8 +24,19 @@ function RecommendedP({ pizzaData = [], addToCart2 }) {
   }, [pizzaData, selectedSizes]);
 
   useEffect(() => {
-    if (pizzaData.length > 0) {
-      setLoading(false);
+    if (window.Worker) {
+      const worker = new Worker(new URL("./dataWorker.js", import.meta.url));
+
+      worker.postMessage(pizzaData);
+
+      worker.onmessage = (event) => {
+        const hasData = event.data;
+        setLoading(!hasData);
+        worker.terminate(); // Clean up the worker
+      };
+    } else {
+      // Fallback for unsupported environments
+      setLoading(pizzaData.length === 0);
     }
   }, [pizzaData]);
 
@@ -48,7 +62,7 @@ function RecommendedP({ pizzaData = [], addToCart2 }) {
     [addToCart2, selectedSizes]
   );
 
-  const skeletonCards = Array.from({ length: 6 });
+  const skeletonCards = Array.from({ length: 9 });
 
   return (
     <div className='recommended-page'>

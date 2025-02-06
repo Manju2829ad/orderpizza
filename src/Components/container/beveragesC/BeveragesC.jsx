@@ -1,34 +1,56 @@
-/*
-
-When to Avoid Re-Renders
-Repeatedly Setting the Same State Value:
-
-Avoid setting the same state value inside a component repeatedly; it can cause needless re-renders.
-Complex Components with Heavy Calculations:
-
-Avoid rerendering in components with complex calculations. Consider using useMemo or React.memo to memoize values and components.
-Updating Parent Component Too Often:
-
-If a parent component re-renders frequently, its children also re-render. useCallback helps prevent passing in-line functions to child components, which avoids unnecessary renders.
-Let me know if you'd like any more details on rendering techniques!
-
-*/
-
-
-
-
-
-
-
-import React from 'react'
-import BeveragesP from '../../presentational/beveragesP/BeveragesP'
+// BeveragesC Component without fetchPriceByPizzaId
+import React, { useContext, useState, useEffect } from "react";
+import BeveragesP from "../../presentational/beveragesp/BeveragesP";
+import { CartContext } from "../cartC/CartProvider";
 
 function BeveragesC() {
+  const { addToCart, fetchPizza } = useContext(CartContext);
+
+  const [beveragesData, setBeveragesData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let mounted = true;
+
+    const loadBeveragesData = async () => {
+      setLoading(true);
+      setError(null);
+
+      try {
+        const data = await fetchPizza("beverages");
+        if (!mounted) return;
+        setBeveragesData(data);
+      } catch (err) {
+        if (mounted) {
+          setError("Failed to load beverages. Please try again later.");
+          console.error("Failed to fetch beverages data:", err);
+        }
+      } finally {
+        if (mounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    loadBeveragesData();
+
+    return () => {
+      mounted = false;
+    };
+  }, [fetchPizza]);
+
   return (
-    <div>BeveragesC
-<BeveragesP/>
+    <div>
+      <h2>Beverages</h2>
+      <BeveragesP
+        beveragesData={beveragesData}
+        addToCart={addToCart}
+        loading={loading}
+        error={error}
+      />
     </div>
-  )
+  );
 }
 
-export default BeveragesC
+export default BeveragesC;

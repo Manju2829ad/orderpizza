@@ -1,199 +1,105 @@
-
-
+/* Skeleton Animation */
 .skeleton {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   animation: shimmer 1.2s infinite;
+  width: 350px;
+  height: 350px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
 }
 
 .recommended-skeleton-image {
-  width: 100%;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   background: #ddd;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 .recommended-skeleton-title,
 .recommended-skeleton-text {
-  height: 12px;
+  width: 80%;
+  height: 15px;
   background: #eee;
+  border-radius: 4px;
   margin: 8px 0;
 }
 
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   100% {
     background-position: 200% 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 }
 
 
-
-
-
+/* Recommended Products Container */
 .recommended-products {
   position: absolute;
   top: 300px;
   left: 0;
   width: 75vw;
-  height: auto;
-
-  display: flex;  /* Added to align cards */
- flex-wrap: wrap;   /* To allow cards to wrap to next line */
-
-       /* gap: 20px; */
-
-         /*  Adds space between the cards */
-justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-evenly;
 }
 
+/* Recommended Product Card */
 .recommended-card {
   background-color: hsl(40, 54%, 92%);
   width: 350px;
   height: 350px;
-   display: flex;/* Ensures content inside is laid out properly */
-  flex-direction: column; /* Content inside will stack vertically */
- align-items: center;   /* Centers the content horizontally */
- justify-content: center;  /*  Centers the content vertically */
- border-radius: 10px;
- margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.recommended-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
+.recommended-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
 
-
-
-
-.recommended-title{
+.recommended-title {
   font-size: 1em;
   font-family: inherit;
+  font-weight: bold;
 }
 
-
-/*
-Limits the maximum width and height of an image, preventing it
- from exceeding certain dimensions.
-
-Often used with responsive designs to avoid oversized images.
-
-object-fit:
-
-
-Specifies how the image should be resized to fit its container. 
-Common values include fill, contain, cover, none, and scale-down.
-
-object-position:
-
-Adjusts the position of an image within its container when object-fit is applied.
-
-box-shadow:
-
-Adds a shadow around the image to create a sense of depth.
-
-filter:
-
-Applies visual effects such as grayscale, blur, brightness, etc.
-
-opacity:
-
-Controls the transparency of an image.
- The value ranges from 0 (fully transparent) to 1 (fully opaque).
-
- background-image:
-
-Sets an image as the background of an element. Common for decorative images.
-background-size
-
-Controls how a background image is sized within an element. 
-Common values are cover, contain, and specific dimensions.
-
-aspect-ratio:
-Ensures the image maintains a certain width-to-height ratio, 
-which is useful for responsive images.
-*/
-
-
-.recommended-descp{
-  font-size: 1*em;
-position: relative;
-color:  hwb(240 2% 95%);
+.recommended-descp {
+  font-size: 0.9em;
+  color: hwb(240 2% 95%);
+  text-align: center;
 }
 
-/*
-Hue: Specifies the type of color on the 360-degree color
- wheel (0 = red, 120 = green, 240 = blue, etc.).
-
-Saturation: Defines the intensity of the color. 100% is full saturation,
- and 0% is grayscale.
-
-Lightness: Determines how light or dark the color is. 0% is black,
- 100% is white, and 50% is the true color.
-
-
-
-*/
-
-
-
-.recommended-prices{
+.recommended-prices {
   font-size: 1em;
-color: hwb(240 4% 96%); /* Bright yellow heading */
-font-weight: 700;
-}
-
-
-.recommended-image{
-border: 1px solid black;
-width: 70vw;
-max-width: 200px;
-max-height: 200px;
-}
-
-
-
-
-
-
-.veg-pizza-sizedropdown{
-
-  width:fit-content;
-  min-height: 25px;  
-  background-color: hwb(0 100% 0%); 
-  display: inline-block;
-  cursor: pointer;
-  background-color: rgb(255, 13, 13);
-  display: inline-block;
-  cursor: pointer;
-color: white;
-padding: 10px 10px;
-border-radius: 15px;
-font-size: 16px;
-margin-bottom: 10px;
-}
-
-.veg-pizza-crust-size{
-
-  width:fit-content;
-    min-height: 20px;  
-    background-color: hwb(212 5% 0%);
-    display: inline-block;
-    cursor: pointer;
-color: white;
-padding: 10px 10px;
-border-radius: 15px;
-font-size: 16px;
-
-margin-bottom: 10px;
-}
-
-.recommended-text{
-
-  margin-bottom: 10px;
-  border-radius: 15px;
-  display: block;
-width: 100px;
-height: 35px;
-    padding: 3px 3px ;
+  color: hwb(240 4% 96%);
+  font-weight: 700;
 }

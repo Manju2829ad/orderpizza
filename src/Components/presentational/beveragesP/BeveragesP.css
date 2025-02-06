@@ -1,0 +1,86 @@
+.BeveragesP__Container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-evenly;
+    background-color: #fafafa;
+    position: relative;
+    top:100px;
+  }
+  
+  .BeveragesP__Card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  .BeveragesP__Card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .BeveragesP__Image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .BeveragesP__Name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .BeveragesP__Description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .BeveragesP__SelectSize {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .BeveragesP__AddToCartButton {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .BeveragesP__AddToCartButton:hover {
+    background-color: #388e3c;
+  }
+  
+  .BeveragesP__Skeleton {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    width: 280px;
+    height: 300px;
+    padding: 20px;
+    animation: skeleton-loading 1.5s infinite linear;
+  }
+  
+  .BeveragesP__TextPlaceholder,
+  .BeveragesP__ImagePlaceholder {
+    background-color: #ddd;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+  
+  .BeveragesP__NoData,
+  .BeveragesP__Error {
+    font-size: 1.1em;
+    color: #999;
+  }
+  

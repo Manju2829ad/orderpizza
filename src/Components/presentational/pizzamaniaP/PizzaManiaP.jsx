@@ -9,7 +9,7 @@ function PizzaManiaP({ pizzaData = [] }) {
 
   // Effect for loading pizza data or simulating delay
   useEffect(() => {
-    if (pizzaData.length > 0) {
+    if (pizzaData.length === 0) {
       setLoading(false);  // Set loading to false once data is available
       setCards(
         pizzaData.map((data) => ({
