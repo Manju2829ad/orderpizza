@@ -1,111 +1,154 @@
-/* Skeleton Animation */
-.skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.2s infinite;
-  width: 350px;
-  height: 350px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+/* Recommended Page Container - Styled similar to Garlicbread-container */
+.recommended-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.2s infinite;
-  opacity: 1;
-  transition: opacity 0.5s ease-out;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 200px;
+  left: 100px;
 }
 
-.recommended-skeleton-image {
-  width: 200px;
-  height: 200px;
-  background: #ddd;
-  border-radius: 10px;
+/* Container for Recommended Product Cards - Similar to Garlic Bread Cards */
+.recommended-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Recommended Product Card - Styled like Garlic-image-card */
+.recommended-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.recommended-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Image Container and Image Styling */
+.recommended-image {
+  width: 100%;
+  height: auto;
   margin-bottom: 15px;
+}
+
+.recommended-image img {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+}
+
+/* Title Styling */
+.recommended-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Description Styling */
+.recommended-descp {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Price Styling */
+.recommended-prices {
+  font-size: 1em;
+  font-weight: bold;
+  color: green;
+  margin-bottom: 10px;
+}
+
+/* Add to Cart Button Styling */
+.recommended-addtocart button {
+  background-color: #ffa500;
+  color: #030303;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.recommended-addtocart button:hover {
+  background-color: hsl(45, 4%, 82%);
+}
+
+/* Dropdown Styling for Size and Crust */
+.recommended-sizedropdown,
+.recommended-crust-size {
+  background-color: #ffecb3;
+  color: #0b0a0a;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.recommended-crust-size {
+  background-color: #ffca28;
+}
+
+/* Skeleton Loader Styles - Matching Garlic Bread Skeleton Loader */
+.skeleton {
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  width: 280px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 300px;
+  animation: skeleton-animation 1.2s infinite ease-in-out;
+}
+
+@keyframes skeleton-animation {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #f0f0f0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
+/* Skeleton Child Elements */
+.recommended-skeleton-image {
+  width: 100%;
+  height: 180px;
+  background-color: #ddd;
+  border-radius: 12px;
+  margin-bottom: 10px;
 }
 
 .recommended-skeleton-title,
 .recommended-skeleton-text {
   width: 80%;
   height: 15px;
-  background: #eee;
-  border-radius: 4px;
-  margin: 8px 0;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  100% {
-    background-position: 200% 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-}
-
-
-/* Recommended Products Container */
-.recommended-products {
-  position: absolute;
-  top: 300px;
-  left: 100px;
-  width: 75vw;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-evenly;
-}
-
-/* Recommended Product Card */
-.recommended-card {
-  background-color: #3f3e3b;
-  width: 350px;
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  color: wheat;
-}
-
-.recommended-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.recommended-image {
-  width: 500px;
-  height: 100px;
-  object-fit: fill;
-  
-  margin-bottom: 10px;
-  color: wheat;
-}
-
-.recommended-title {
-  font-size: 1em;
-  font-family: inherit;
-  font-weight: bold;
-  position: relative;
-  top: 20px;
-  color: wheat;
-}
-
-.recommended-descp {
-  font-size: 0.9em;
-  color: hwb(240 2% 95%);
-  text-align: center;
-  color: wheat;
-}
-
-.recommended-prices {
-  font-size: 1em;
-  color: hwb(240 4% 96%);
-  font-weight: 700;
+  background-color: #ddd;
+  border-radius: 8px;
+  margin: 5px auto;
 }

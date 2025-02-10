@@ -7,10 +7,8 @@ function PizzaManiaP({ pizzaData = [] }) {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Effect for loading pizza data or simulating delay
   useEffect(() => {
-    if (pizzaData.length === 0) {
-      setLoading(false);  // Set loading to false once data is available
+    if (pizzaData.length > 0) {
       setCards(
         pizzaData.map((data) => ({
           id: data.id,
@@ -18,6 +16,7 @@ function PizzaManiaP({ pizzaData = [] }) {
           crust: '',        // Default crust
         }))
       );
+      setLoading(false); // Data is now available, stop showing skeletons.
     }
   }, [pizzaData]);
 
