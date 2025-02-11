@@ -46,4 +46,4 @@ function GarlicBreadsP({ addToCart, pizzaData }) {
   );
 }
 
-export default GarlicBreadsP;
+export default React.memo(GarlicBreadsP);

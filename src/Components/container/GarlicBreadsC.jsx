@@ -37,4 +37,4 @@ function GarlicBreadsC() {
   );
 }
 
-export default GarlicBreadsC;
+export default React.memo(GarlicBreadsC);

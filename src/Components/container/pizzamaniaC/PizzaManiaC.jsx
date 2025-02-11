@@ -118,4 +118,4 @@ decrementCart={decrementCart}
   )
 }
 
-export default PizzaManiaC
+export default React.memo(PizzaManiaC)

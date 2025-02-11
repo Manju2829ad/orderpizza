@@ -72,4 +72,4 @@ function VegPizzaP({ pizzaData = [] }) {
   );
 }
 
-export default VegPizzaP;
+export default React.memo(VegPizzaP);

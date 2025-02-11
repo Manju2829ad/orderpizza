@@ -45,4 +45,4 @@ function HeaderP({ logo, location, account, deliveryOptions }) {
   );
 }
 
-export default HeaderP;
+export default React.memo(HeaderP);

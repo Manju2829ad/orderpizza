@@ -51,4 +51,4 @@ addtoCart={addToCart2}
   )
 }
 
-export default NewLaunchesC
+export default React.memo(NewLaunchesC)

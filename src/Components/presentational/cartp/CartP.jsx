@@ -4,7 +4,7 @@ import { CartContext } from '../../container/cartC/CartProvider';
 import './CartP.css';
 
 function CartP() {
-  const { cart, removeItem, incrementCart, decrementCart, currentPrices } = useContext(CartContext);
+  const { cart, removeItem, incrementCart, decrementCart, currentPrices } = useContext(CartContext); 
   const navigate = useNavigate(); // Initialize navigate
 
   const handleCheckout = () => {

@@ -1,4 +1,3 @@
-// CartProvider.js
 import React, { createContext } from 'react';
 import UseCartLogic from '../../UseCartLogic';
 
@@ -10,4 +9,4 @@ const CartProvider = ({ children }) => {
   return <CartContext.Provider value={cartLogic}>{children}</CartContext.Provider>;
 };
 
-export default CartProvider;
+export default React.memo(CartProvider);

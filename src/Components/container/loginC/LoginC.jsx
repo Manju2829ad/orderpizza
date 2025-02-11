@@ -116,4 +116,4 @@ console.log(isLoggedIn,":isLoggedIn")
   );
 }
 
-export default LoginC;
+export default React.memo(LoginC);

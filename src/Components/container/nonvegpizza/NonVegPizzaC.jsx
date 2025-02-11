@@ -1,4 +1,4 @@
-import { useContext,useState,useEffect } from 'react';
+import React, { useContext,useState,useEffect } from 'react';
 
 import NonVegPizzaP from '../../presentational/nonvegpizzap/NonVegPizzaP'
 import { CartContext } from '../cartC/CartProvider';
@@ -45,4 +45,4 @@ function NonVegPizzaC() {
     </div>
   );
 }
-export default NonVegPizzaC
+export default React.memo(NonVegPizzaC)

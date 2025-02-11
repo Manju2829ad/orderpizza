@@ -38,7 +38,7 @@ function RecommendedC() {
                decrementCart={decrementCart}
         incrementCart={incrementCart}
       //  prices={prices} // Ensure prices is defined in your context or imported correctly
-        pizzaData={pizzaData} // Pass the pizza data state instead of the fetch method
+        pizzaData={pizzaData||[]} // Pass the pizza data state instead of the fetch method
         addToCart={addToCart}
         addToCart2={addToCart2}
       />
@@ -46,4 +46,4 @@ function RecommendedC() {
   );
 }
 
-export default RecommendedC;
+export default React.memo(RecommendedC);

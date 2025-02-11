@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 
 // Custom hook for handling cart logic and user authentication
 const UseCartLogic = () => {
@@ -142,7 +142,7 @@ const UseCartLogic = () => {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
-
+        console.log("responseeeeeeeee:", response);
       if (!response.ok) {
         throw new Error('Network response was not ok ' + response.statusText);
       }

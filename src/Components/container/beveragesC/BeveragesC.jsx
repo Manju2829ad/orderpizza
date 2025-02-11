@@ -53,4 +53,4 @@ function BeveragesC() {
   );
 }
 
-export default BeveragesC;
+export default React.memo(BeveragesC);

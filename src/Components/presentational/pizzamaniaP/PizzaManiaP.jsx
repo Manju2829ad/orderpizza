@@ -63,13 +63,11 @@ function PizzaManiaP({ pizzaData = [] }) {
                 <div key={data.id} className="pizza-card">
                   <img src={`http://springpizzaapp.onrender.com${data.image}`} alt={data.name || 'Pizza'} />
                   <span className="text">
-{/* 
-                    <span>{data.prices}</span> */}
-                  { 
-  data.prices.find(
-    (priceObj) => priceObj.size.toLowerCase() === (card?.size || '').toLowerCase()
-  )?.price || 'N/A'
-}
+                    {Array.isArray(data.prices) && data.prices.length > 0
+                      ? data.prices.find(
+                          (priceObj) => priceObj.size.toLowerCase() === (card?.size || '').toLowerCase()
+                        )?.price || 'N/A'
+                      : 'N/A'}
                   </span>
                   <p>{data.description}</p>
 
@@ -113,4 +111,4 @@ function PizzaManiaP({ pizzaData = [] }) {
   );
 }
 
-export default PizzaManiaP;
+export default React.memo(PizzaManiaP);

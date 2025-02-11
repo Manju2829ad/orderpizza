@@ -38,4 +38,4 @@ function NavBarC() {
   );
 }
 
-export default NavBarC;
+export default React.memo(NavBarC);

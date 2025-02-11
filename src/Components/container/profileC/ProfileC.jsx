@@ -109,4 +109,4 @@ function ProfileC() {
   );
 }
 
-export default ProfileC;
+export default React.memo(ProfileC);

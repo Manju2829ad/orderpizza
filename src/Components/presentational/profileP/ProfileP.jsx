@@ -124,4 +124,4 @@ function ProfileP({ data = {}, message, fetchProfileDetails, updateUser }) {
   );
 }
 
-export default ProfileP;
+export default React.memo(ProfileP);

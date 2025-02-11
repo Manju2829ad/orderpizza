@@ -52,4 +52,4 @@ function LoginPresentation({
   );
 }
 
-export default LoginPresentation;
+export default React.memo(LoginPresentation);

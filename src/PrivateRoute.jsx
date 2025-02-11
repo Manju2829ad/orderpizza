@@ -18,4 +18,4 @@ const PrivateRoute = ({ element: Component, ...rest }) => {
   );
 };
 
-export default PrivateRoute;
+export default React.memo(PrivateRoute);

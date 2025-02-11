@@ -84,4 +84,4 @@ function SignupContainer() {
   );
 }
 
-export default SignupContainer;
+export default React.memo(SignupContainer);

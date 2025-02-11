@@ -161,4 +161,4 @@ const PizzaCard = ({
 
 const MemoizedPizzaCard = React.memo(PizzaCard);
 
-export default NonVegPizzaP;
+export default React.memo(NonVegPizzaP);

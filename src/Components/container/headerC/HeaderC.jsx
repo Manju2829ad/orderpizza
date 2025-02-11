@@ -51,4 +51,4 @@ function HeaderC() {
   );
 }
 
-export default HeaderC;
+export default React.memo(HeaderC);

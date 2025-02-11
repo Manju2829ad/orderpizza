@@ -19,4 +19,4 @@ const NavBarP = ({ navItems = [] }) => {
     );
 };
 
-export default NavBarP;
+export default React.memo(NavBarP);

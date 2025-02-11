@@ -149,4 +149,4 @@ function VegPizzaC() {
   );
 }
 
-export default VegPizzaC;
+export default React.memo(VegPizzaC);

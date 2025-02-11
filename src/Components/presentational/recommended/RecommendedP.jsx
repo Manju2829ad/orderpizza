@@ -5,7 +5,7 @@ import CartP from '../cartp/CartP';
 
 
 
-function RecommendedP({ pizzaData = [], addToCart2 }) {
+function RecommendedP({ pizzaData = [], addToCart2={} }) {
   const [selectedSizes, setSelectedSizes] = useState({});
   const [selectedCrusts, setSelectedCrusts] = useState({});
   const [currentPrices, setCurrentPrices] = useState({});
@@ -153,4 +153,4 @@ const PizzaCard = ({
 
  const MemoizedPizzaCard = React.memo(PizzaCard);
 
-export default RecommendedP;
+export default React.memo(RecommendedP);

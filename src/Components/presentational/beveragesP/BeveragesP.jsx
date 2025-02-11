@@ -57,4 +57,4 @@ function BeveragesP({ beveragesData = [], addToCart, loading, error }) {
   );
 }
 
-export default BeveragesP;
+export default React.memo(BeveragesP);

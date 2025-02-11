@@ -53,4 +53,4 @@ function NewLaunchesP({ pizza = [] }) {
   );
 }
 
-export default NewLaunchesP;
+export default React.memo(NewLaunchesP);

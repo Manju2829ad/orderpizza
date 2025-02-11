@@ -94,4 +94,4 @@ function SignUpP({
   );
 }
 
-export default SignUpP;
+export default React.memo(SignUpP);
