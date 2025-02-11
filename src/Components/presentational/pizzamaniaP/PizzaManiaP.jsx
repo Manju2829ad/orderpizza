@@ -63,8 +63,8 @@ function PizzaManiaP({ pizzaData = [] }) {
                 <div key={data.id} className="pizza-card">
                   <img src={`http://springpizzaapp.onrender.com${data.image}`} alt={data.name || 'Pizza'} />
                   <span className="text">
-
-                    <span>{data.prices}</span>
+{/* 
+                    <span>{data.prices}</span> */}
                   { 
   data.prices.find(
     (priceObj) => priceObj.size.toLowerCase() === (card?.size || '').toLowerCase()
