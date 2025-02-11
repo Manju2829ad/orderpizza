@@ -1,83 +1,142 @@
-/* Container for all non-veg pizza products */
+/* Container for the Non-Veg Pizza Page */
+.non-veg-pizza-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Container for all Non-Veg Pizza Products */
 .non-veg-pizza-products {
   position: absolute;
   top: 300px;
   left: 100px;
   width: 70vw;
   height: auto;
-  background-color: rgb(192, 252, 136);
-  display: flex;  /* Aligning cards in flex */
-  flex-wrap: wrap; /* Allowing cards to wrap to next line */
+  background-color: #95ff32;
+  display: flex;           /* Aligning cards in flex */
+  flex-wrap: wrap;   
+  border-radius: 25px;      /* Allow cards to wrap into the next line */
   justify-content: space-around; /* Distribute space evenly */
-
 }
 
-/* Non-veg pizza card style */
-.nonvegcard {
-  background-color: hsl(50deg 100% 56%);
+/* Non-Veg Pizza Card Style */
+.non-veg-card {
+  background-color: hwb(60 7% 92%);
   width: 350px;
   height: 350px;
-  display: flex; /* Ensures content inside is laid out properly */
-  flex-direction: column; /* Content inside will stack vertically */
-  align-items: center; /* Centers the content horizontally */
-  justify-content: center; /* Centers the content vertically */
+  display: flex;               /* Ensures content inside is laid out properly */
+  flex-direction: column;      /* Stack content vertically */
+  align-items: center;         /* Center horizontally */
+  justify-content: center;     /* Center vertically */
   border-radius: 10px;
-  margin-bottom: 20px;
-  margin-right: 100px;
+  margin: 20px;
+  padding: 20px;
+  border: 10px solid black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
   animation: fadeIn 0.6s ease-out;
-  padding: 20px;
-  margin: 20px 20px ;
-  border: 10px solid black;
-
 }
 
-.nonvegcard:hover {
+.non-veg-card:hover {
   transform: translateY(-10px); /* Lifts the card */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increases shadow */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increases shadow on hover */
 }
 
-/* Image style inside the pizza card */
-.nonvegimage {
-  width: 70vw;
-  max-width: 200px;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 8px; /* Rounded corners for images */
-  transition: transform 0.3s ease;
+/* Non-Veg Image Container */
+.non-veg-image {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  position: relative;
+  top: 70px;
+}
+
+/* Image Styling for the Non-Veg Pizza Card */
+.non-veg-image img {
+  width: 350px;
+  height: 200px;
+  max-width: 400px;
+  object-fit: cover;       /* Ensures the image covers its container */
+  border-radius: 8px;       /* Rounded corners for images */
   border: 1px solid black;
+  transition: transform 0.3s ease;
+  display: block;      
+  
+  /* Remove inline spacing/margin */
 }
 
-.nonvegimage:hover {
-  transform: scale(1.05); /* Slight zoom effect on image hover */
+.non-veg-image img:hover {
+  transform: scale(1.05);   /* Slight zoom effect on image hover */
 }
 
-/* Title inside the pizza card */
-.nonvegtitle {
+/* Title Styling for the Pizza Card */
+.non-veg-title {
   font-size: 1em;
   font-family: inherit;
   font-weight: bold;
   margin: 10px 0;
-  color: hsl(246deg 98% 21%); /* Dark Blue color */
+  color: hwb(245 96% 0%); /* Dark blue color */
+  animation: charloutteColor 3s ease-in-out infinite;
 }
 
-/* Description of the pizza */
-.nonvegdescp {
+/* Description Styling */
+.non-veg-desc {
   font-size: 1em;
   position: relative;
-  color: hsl(240deg 70% 50%); /* A bluish color */
+  color: rgb(255, 255, 255); /* A bluish color */
   margin: 10px 0;
 }
 
-/* Price of the pizza */
-.nonvegprices {
-  font-size: 1em;
-  color: hsl(246deg 98% 21%); /* Bright yellow heading */
+/* Price Styling */
+.non-veg-price {
+  font-size: 2em;
+  color: hwb(0 100% 0%); /* Bright yellow-ish */
   font-weight: 700;
+  position: relative;
+  bottom: 250px;
+  left: 100px;
 }
 
-/* Skeleton loader styles */
+/* Add-to-Cart Button Styling */
+.non-veg-add-to-cart button {
+  background-color: rgb(255, 25, 25);
+  color: #030303;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+  position: relative;
+  bottom: 60px;
+}
+
+.non-veg-add-to-cart button:hover {
+  background-color: hsl(45, 4%, 82%);
+}
+
+/* Dropdown Styling for Non-Veg Pizza (Size and Crust) */
+.non-veg-size-dropdown,
+.non-veg-crust-dropdown {
+  background-color: rgb(255, 255, 255);
+  color: #0b0a0a;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin-bottom: 10px;
+  position: relative;
+  bottom: 70px;
+}
+
+.non-veg-crust-dropdown {
+  background-color: hwb(36 98% 0%);
+}
+
+/* Skeleton Loader Styles */
 .skeleton {
   background-color: #ddd;
   border-radius: 8px;
@@ -100,6 +159,7 @@
   animation: skeleton-pulse 1.5s infinite ease-in-out;
 }
 
+/* Skeleton Pulse Animation */
 @keyframes skeleton-pulse {
   0% {
     background-color: #ccc;
@@ -112,7 +172,7 @@
   }
 }
 
-/* Keyframe for fade-in animation */
+/* Fade-In Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -124,7 +184,7 @@
   }
 }
 
-/* Keyframe for charloutte color transition effect */
+/* Keyframe for Charloutte Color Transition on Titles */
 @keyframes charloutteColor {
   0% {
     background-color: hsl(0deg, 100%, 75%);
@@ -137,71 +197,25 @@
   }
 }
 
-/* Apply the charloutte color animation to titles */
-.nonvegtitle {
-  animation: charloutteColor 3s ease-in-out infinite;
-}
-
-/* Non-veg text styling */
-.nonvegtext {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  background-color: #f8f9fa;
-  border-radius: 5px;
-  color: hsl(0deg, 0%, 20%);
-}
-
-/* Additional styling for the container and layout */
-.non-veg-pizza-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+/* Additional Styling for Cart Container & Layout */
 .cart-container {
   margin-top: 30px;
 }
 
-/* Style for smaller screens */
+/* Responsive Adjustments for Smaller Screens */
 @media (max-width: 768px) {
   .non-veg-pizza-products {
     width: 100vw;
     padding: 10px;
   }
-
-  .nonvegcard {
+  
+  .non-veg-card {
     width: 300px;
     height: auto;
   }
-
-  .nonvegimage {
+  
+  .non-veg-image img {
     width: 90vw;
     max-width: 150px;
   }
-}
-
-
-.non-veg-card{
-
-  margin: 20px 20px;
-  border: 1px solid black;
-  display: flex;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 2rem;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  box-sizing: border-box;
- width: 67vw;
-}
-
-.non-veg-card img{
-  height: 250px;
-  width: 350px; /* Ensure the image scales within its container */
-  max-width: 400px; /* Set a maximum width of 250px */
-  /* height: auto;  */
-  /* Maintain aspect ratio */
-  object-fit: cover; /* Ensure the image is contained within the bounds of the container */
-  display: block; /* Removes any inline spacing/margin */
 }

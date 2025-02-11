@@ -17,7 +17,7 @@ function NonVegPizzaC() {
     const loadPizzaData = async () => {
       try {
         const data = await fetchPizza("nonVeg"); // Pass category "recommended"
-        console.log(data, 'Pizza data fetched');
+        console.log(data, 'NVPizza data fetched');
         setPizzaData(data); // Update state with fetched data
       } catch (error) {
         console.error('Failed to fetch pizza data:', error);

@@ -9,11 +9,14 @@ function PizzaManiaP({ pizzaData = [] }) {
 
   useEffect(() => {
     if (pizzaData.length > 0) {
+      console.log("prices")
+         console.log(pizzaData)
       setCards(
         pizzaData.map((data) => ({
           id: data.id,
           size: 'Regular',  // Default size
-          crust: '',        // Default crust
+          crust: '',    
+          prices:data.prices    // Default crust
         }))
       );
       setLoading(false); // Data is now available, stop showing skeletons.
@@ -58,10 +61,15 @@ function PizzaManiaP({ pizzaData = [] }) {
               const card = cards.find((card) => card.id === data.id); // Find the corresponding card
               return (
                 <div key={data.id} className="pizza-card">
-                  <img src={data.image} alt={data.name || 'Pizza'} />
+                  <img src={`http://springpizzaapp.onrender.com${data.image}`} alt={data.name || 'Pizza'} />
                   <span className="text">
-                    {data.prices.find((priceObj) => priceObj.size === card?.size)
-                      ?.price || 'N/A'}
+
+                    <span>{data.prices}</span>
+                  { 
+  data.prices.find(
+    (priceObj) => priceObj.size.toLowerCase() === (card?.size || '').toLowerCase()
+  )?.price || 'N/A'
+}
                   </span>
                   <p>{data.description}</p>
 

@@ -34,7 +34,7 @@
 /* Pizza image styling */
 .pizza-card img {
     width: 100%;
-    height: auto;
+    height: 300px;
     border-radius: 12px;
     margin-bottom: 15px;
 }

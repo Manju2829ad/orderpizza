@@ -151,6 +151,6 @@ const PizzaCard = ({
   );
 };
 
-const MemoizedPizzaCard = React.memo(PizzaCard);
+ const MemoizedPizzaCard = React.memo(PizzaCard);
 
 export default RecommendedP;

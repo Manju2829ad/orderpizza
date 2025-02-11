@@ -65,8 +65,8 @@ const [error,setError] =useState('')
       
       const loadPizzaData= async ()=>{
 
-      const response=await fetchPizza('veg');
-      console.log(response,':response')
+      const response=await fetchPizza('pizza-mania');
+      console.log(response,':pmresponse')
 
       if(!response.ok){
         console.log(response.status)
