@@ -91,10 +91,10 @@ function RecommendedP({ pizzaData = [], addToCart2={} }) {
                 />
               ))}
       </div>
-
+{/* 
       <div className='recommended-cart-container'>
         <CartP />
-      </div>
+      </div> */}
     </div>
   );
 }

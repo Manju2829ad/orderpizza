@@ -21,6 +21,7 @@ export const getNavObject = () => {
     { id: 7, name: 'Beverages', path: '/beverages' ,element:<BeveragesC/>},
     { id: 8, name: 'Garlic Breads & More', path: '/garlic-breads-more',element:<GarlicBreadsC/>},
     { id: 9, name: 'Pizza Mania', path: '/pizza-mania',element:<PizzaManiaC/> },
+    
     // { id: 10, name: 'Value Combos', path: '/value-combos' },
     // { id: 11, name: 'Desserts', path: '/desserts' },
   ];

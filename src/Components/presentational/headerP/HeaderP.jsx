@@ -1,19 +1,16 @@
+// HeaderP.js
 import React from 'react';
-import './HeaderP.css'; // Assuming you use some CSS for styling
 import { Link } from 'react-router-dom';
+import './HeaderP.css';
 
-function HeaderP({ logo, location, account, deliveryOptions }) {
-  const { label, actions } = account; // Destructure the account object
-
+function HeaderP({ cart,logo, location, account, deliveryOptions, cartCount }) {
   return (
     <div className="header">
-      {/* Logo */}
       <div className="logo">
-        <img src="dominos-logo.png" alt={logo} /> {/* Use the correct image source */}
+        <img src="https://www.dominos.com/assets/images/logo.svg" alt={logo} />
         <span>{logo}</span>
       </div>
 
-      {/* Delivery Options */}
       <div className="delivery-options">
         <label>
           <input type="radio" name="deliveryOption" />
@@ -25,20 +22,23 @@ function HeaderP({ logo, location, account, deliveryOptions }) {
         </label>
       </div>
 
-      {/* Location */}
       <div className="location">
         <span>{location}</span>
       </div>
 
-      {/* Account */}
       <div className="account">
-        <Link to={"/profile"}>My Account</Link>
-
-        <Link to={actions.includes("logout") ? "/logout" : "/login"}>
-          {actions.length > 0 ? actions[0] : "Login"}
+        <Link to="/profile">My Account</Link>
+        <Link to={account.actions.includes('logout') ? '/logout' : '/login'}>
+          {account.actions.length > 0 ? account.actions[0] : 'Login'}
         </Link>
-        <Link to={actions.includes("Signup") ? "/signup" : "/signup"}>
-          {actions[1]}
+        <Link to="/signup">{account.actions[1]}</Link>
+      </div>
+
+      <div className="cart">
+        <Link to="/cart">
+          <button className="cart-button">
+            Cart {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+          </button>
         </Link>
       </div>
     </div>

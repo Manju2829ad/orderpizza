@@ -35,7 +35,7 @@ function App() {
               <Route path="/profile" element={<ProfileC />} />
               <Route path="/login" element={<LoginContainer />} />
               <Route path="/logout" element={<LogoutC />} />
-
+              <Route path="/cart" element={<CartP />} />
               {/* Private Route for Cart and Checkout */}
               <Route
                 path="/cart"

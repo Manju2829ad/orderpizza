@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Custom hook for handling cart logic and user authentication
 const UseCartLogic = () => {

@@ -3,7 +3,7 @@ import ProfileP from '../../presentational/profileP/ProfileP';
 
 function ProfileC() {
   const [message, setMessage] = useState('');
-  const [data, setData] = useState({}); // Change to object since we're fetching user data
+  const [data, setData] = useState([]); // Change to object since we're fetching user data
 
   const fetchProfileDetails = useCallback(async (id) => {
     console.log("inside the fetchProfileDetails");
@@ -52,8 +52,8 @@ function ProfileC() {
   
     try {
       const token = localStorage.getItem('jwtToken');
-      const response = await fetch("https://springpizzaapp.onrender.com/api/users/update", {
-        method: 'POST',
+      const response = await fetch(`https://springpizzaapp.onrender.com/api/users/profile/${updatedData.uid}`, {
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
@@ -63,38 +63,21 @@ function ProfileC() {
   
       if (!response.ok) {
         setMessage('Error updating the User Details');
-        return; // Stop further execution
+        return;
       }
   
       const result = await response.json();
       setMessage(result.message || "User details updated successfully");
       console.log(result, "Update response");
-  
-      // Optionally re-fetch the user profile details to get updated data
-      // if (updatedData.uid) {
-      //   await fetchProfileDetails(updatedData.uid);
-      //   console.log("if")
-      // }
+      
+      // Fetch updated profile details after successful update
+      fetchProfileDetails(updatedData.uid);
+
     } catch (error) {
       setMessage("Error: Could not update the user details.");
       console.error("Update error:", error);
-      console.log('else')
     }
-
-    
-  }, [fetchProfileDetails]
-); // Dependency on fetchProfileDetails to allow re-fetching updated data
-  
-
-
-
-
-
-
-
-
-
-
+  }, [fetchProfileDetails]);
 
   return (
     <div>

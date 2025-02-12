@@ -61,3 +61,25 @@
 .account a:hover{
   color: chartreuse;
 }
+
+
+
+.cart-button {
+  position: relative;
+  
+  right: 340px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cart-count {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  font-size: 12px;
+}
