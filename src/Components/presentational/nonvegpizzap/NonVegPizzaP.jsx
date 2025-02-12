@@ -96,9 +96,9 @@ function NonVegPizzaP({ pizzaData = [], addToCart }) {
         
       </div>
 
-      <div className='cart-container'>
+      {/* <div className='cart-container'>
         <CartP />
-      </div>
+      </div> */}
     </div>
   );
 }
