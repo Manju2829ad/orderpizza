@@ -158,6 +158,8 @@ const UseCartLogic = () => {
   };
 
   const fetchPriceByPizzaId = async (pizzaId) => {
+
+
     try {
       const response = await fetch(`https://springpizzaapp.onrender.com/api/price/get/${pizzaId}`, {
         method: 'GET',
@@ -173,6 +175,8 @@ const UseCartLogic = () => {
         ...prevPrices,
         [pizzaId]: data.price,
       }));
+
+      console.log(data)
       return data;
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
